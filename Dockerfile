@@ -15,7 +15,8 @@ RUN wget "https://download.zip.dll-files.com/3b22b2ec303b0721827dd768c87df6ed/vc
 unzip vcruntime140_1.zip "vcruntime140_1.dll" && \
 rm vcruntime140_1.zip && \
 wine SymDB2.exe && \
-rm PDB_Symdef.txt
+rm PDB_Symdef.txt && \
+rm .wine -rf
 
 ENV WINEDEBUG -all
 CMD [ "wine", "/bds/bedrock_server.exe" ]
