@@ -16,7 +16,7 @@ unzip vcruntime140_1.zip "vcruntime140_1.dll" && \
 rm vcruntime140_1.zip && \
 wine SymDB2.exe && \
 rm PDB_Symdef.txt && \
-rm .wine -rf
+rm /root/.wine -r
 
 ENV WINEDEBUG -all
 CMD [ "wine", "/bds/bedrock_server.exe" ]
