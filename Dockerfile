@@ -8,14 +8,12 @@ RUN wget https://minecraft.azureedge.net/bin-win/${bdsVer}
 RUN wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/1.1.0/LiteLoader.zip
 RUN unzip ${bdsVer} -d /bds
 RUN unzip LiteLoader.zip -d /bds
-RUN wget https://download.microsoft.com/download/9/3/F/93FCF1E7-E6A4-478B-96E7-D4B285925B00/vc_redist.x64.exe
-RUN wine vc_redist.x64.exe /quiet
 WORKDIR /bds
+RUN wget "https://download.zip.dll-files.com/3b22b2ec303b0721827dd768c87df6ed/vcruntime140_1.zip?token=H2eXFzigitsFF6US5vY7bA&expires=1626368920" -O vcruntime140_1.dll
 RUN wine SymDB2.exe
-RUN rm /root/PDB_Symdef.txt
+RUN rm PDB_Symdef.txt
 RUN rm /root/${bdsVer}
 RUN rm /root/LiteLoader.zip
-RUN rm /root/vc_redist.x64.exe
 
 ENV WINEDEBUG -all
 CMD [ "wine bedrock_server.exe" ]
