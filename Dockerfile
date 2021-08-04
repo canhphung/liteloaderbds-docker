@@ -1,4 +1,4 @@
-FROM shrbox/winehq
+FROM shrbox/winehq:main
 
 VOLUME [ "/bds" ]
 WORKDIR /root
