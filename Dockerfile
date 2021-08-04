@@ -12,8 +12,8 @@ unzip LiteLoader.zip -d /bds && \
 rm /root/bedrock-server-${bdsVer}.zip && \
 rm /root/LiteLoader.zip
 WORKDIR /bds
-RUN wget "https://cdn.jsdelivr.net/gh/Redbeanw44602/liteloader-docker/vcruntime140_1.zip" -O vcruntime140_1.zip && \
-unzip vcruntime140_1.zip "vcruntime140_1.dll" && \
+COPY vcruntime140_1.zip /bds/
+RUN unzip vcruntime140_1.zip "vcruntime140_1.dll" && \
 rm vcruntime140_1.zip && \
 wine SymDB2.exe && \
 rm PDB_Symdef.txt && \
