@@ -2,8 +2,8 @@ FROM shrbox/winehq:main
 
 VOLUME [ "/bds" ]
 WORKDIR /root
-ARG bdsVer 1.17.10.04
-ARG llVer 1.1.1
+ENV bdsVer 1.17.10.04
+ENV llVer 1.1.1
 RUN apt install wget unzip -y && \
 wget https://minecraft.azureedge.net/bin-win/bedrock-server-${bdsVer}.zip && \
 wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/${llVer}/LiteLoader.zip && \
