@@ -1,4 +1,4 @@
-FROM hellobox/winehq
+FROM ghcr.io/shrbox/winehq-docker:main
 
 VOLUME [ "/bds" ]
 WORKDIR /root
