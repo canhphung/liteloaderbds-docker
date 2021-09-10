@@ -1,20 +1,21 @@
 FROM shrbox/winehq:main
 
 VOLUME [ "/bds" ]
+ENV BDSDIR /home/bds/bds/
+ENV BDSVER 1.17.11.01
+ENV LLVER 1.1.2.1
 RUN useradd -m bds -d /home/bds -s /bin/bash && apt install wget unzip -y
 USER bds
 WORKDIR /home/bds/
-ENV bdsVer 1.17.11.01
-ENV llVer 1.1.2.1
-RUN wget https://minecraft.azureedge.net/bin-win/bedrock-server-${bdsVer}.zip && \
-wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/${llVer}/LiteLoader.zip && \
-unzip bedrock-server-${bdsVer}.zip -d /bds && \
-unzip LiteLoader.zip -d /bds && \
+RUN wget https://minecraft.azureedge.net/bin-win/bedrock-server-${BDSVER}.zip && \
+wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/${LLVER}/LiteLoader.zip && \
+unzip bedrock-server-${bdsVer}.zip -d ${BDSDIR} && \
+unzip LiteLoader.zip -d ${BDSDIR} && \
 rm /home/bds/bedrock-server-${bdsVer}.zip && \
 rm /home/bds/LiteLoader.zip
-WORKDIR /home/bds/bds/
-COPY vcruntime140_1.zip /home/bds/bds/
-COPY dbghelp.dll /home/bds/bds/
+WORKDIR ${BDSDIR}
+COPY vcruntime140_1.zip ${BDSDIR}
+COPY dbghelp.dll ${BDSDIR}
 RUN unzip vcruntime140_1.zip "vcruntime140_1.dll" && \
 rm vcruntime140_1.zip && \
 wine SymDB2.exe && \
