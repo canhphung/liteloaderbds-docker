@@ -9,9 +9,9 @@ USER bds
 WORKDIR /home/bds/
 RUN wget https://minecraft.azureedge.net/bin-win/bedrock-server-${BDSVER}.zip && \
 wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/${LLVER}/LiteLoader.zip && \
-unzip bedrock-server-${bdsVer}.zip -d ${BDSDIR} && \
+unzip bedrock-server-${BDSVER}.zip -d ${BDSDIR} && \
 unzip LiteLoader.zip -d ${BDSDIR} && \
-rm /home/bds/bedrock-server-${bdsVer}.zip && \
+rm /home/bds/bedrock-server-${BDSVER}.zip && \
 rm /home/bds/LiteLoader.zip
 WORKDIR ${BDSDIR}
 COPY vcruntime140_1.zip ${BDSDIR}
