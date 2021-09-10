@@ -15,11 +15,10 @@ rm /home/bds/bedrock-server-${BDSVER}.zip && \
 rm /home/bds/LiteLoader.zip
 WORKDIR ${BDSDIR}
 COPY vcruntime140_1.zip ${BDSDIR}
-COPY dbghelp.dll ${BDSDIR}
 RUN unzip vcruntime140_1.zip "vcruntime140_1.dll" && \
 rm vcruntime140_1.zip && \
 wine SymDB2.exe && \
 rm /home/bds/.wine -r
 
 ENV WINEDEBUG -all
-CMD [ "wine", "/bds/bedrock_server.exe" ]
+CMD [ "wine", "/bds/bedrock_server_mod.exe" ]
