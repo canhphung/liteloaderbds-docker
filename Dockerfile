@@ -19,6 +19,7 @@ COPY SymDB2_Old.exe ${BDSDIR}
 RUN unzip vcruntime140_1.zip "vcruntime140_1.dll" && \
 rm vcruntime140_1.zip && \
 wine SymDB2_Old.exe && \
+rm PDB_Symdef.txt && \
 rm /home/bds/.wine -r
 
 ENV WINEDEBUG -all
