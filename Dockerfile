@@ -2,8 +2,8 @@ FROM shrbox/winehq:main
 
 VOLUME [ "/bds" ]
 ENV BDSDIR /home/bds/bds/
-ENV BDSVER 1.17.11.01
-ENV LLVER 1.1.2.1
+ENV BDSVER 1.17.31.01
+ENV LLVER 1.2.1
 RUN useradd -m bds -d /home/bds -s /bin/bash && apt install wget unzip -y
 USER bds
 WORKDIR /home/bds/
@@ -15,12 +15,11 @@ rm /home/bds/bedrock-server-${BDSVER}.zip && \
 rm /home/bds/LiteLoader.zip
 WORKDIR ${BDSDIR}
 COPY vcruntime140_1.zip ${BDSDIR}
-COPY SymDB2_Old.exe ${BDSDIR}
 RUN unzip vcruntime140_1.zip "vcruntime140_1.dll" && \
 rm vcruntime140_1.zip && \
-wine SymDB2_Old.exe && \
+wine SymDB2.exe && \
 rm PDB_Symdef.txt && \
 rm /home/bds/.wine -r
 
 ENV WINEDEBUG -all
-CMD [ "wine", "/bds/bedrock_server.exe" ]
+CMD [ "wine", "/bds/bedrock_server_mod.exe" ]
