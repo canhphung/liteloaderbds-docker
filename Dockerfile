@@ -1,6 +1,6 @@
 FROM shrbox/winehq:main
 
-VOLUME [ "/bds" ]
+VOLUME [ "/home/bds/bds" ]
 ENV BDSDIR /home/bds/bds/
 ENV BDSVER 1.17.40.06
 ENV LLVER 1.2.5
