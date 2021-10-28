@@ -21,4 +21,4 @@ wine SymDB2.exe && \
 rm /home/bds/.wine -r
 
 ENV WINEDEBUG -all
-CMD [ "wine", "/bds/bedrock_server.exe" ]
+CMD [ "wine", "/home/bds/bds/bedrock_server.exe" ]
