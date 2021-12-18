@@ -2,8 +2,8 @@ FROM shrbox/winehq:main
 
 VOLUME [ "/home/bds/bds" ]
 ENV BDSDIR /home/bds/bds/
-ENV BDSVER 1.17.40.06
-ENV LLVER 1.2.5
+ENV BDSVER 1.18.2.03
+ENV LLVER 2.0.2-pre-3
 RUN useradd -m bds -d /home/bds -s /bin/bash && apt install wget unzip -y
 USER bds
 WORKDIR /home/bds/
@@ -21,4 +21,4 @@ wine SymDB2.exe && \
 rm /home/bds/.wine -r
 
 ENV WINEDEBUG -all
-CMD [ "wine", "/home/bds/bds/bedrock_server.exe" ]
+CMD [ "wine", "/home/bds/bds/bedrock_server_mod.exe" ]
