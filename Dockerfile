@@ -4,8 +4,9 @@ VOLUME [ "/home/container/bds" ]
 ENV BDSDIR /home/container/bds/
 ENV BDSVER 1.18.2.03
 ENV LLVER 2.0.3
-RUN useradd -m bds -d /home/container -s /bin/bash && apt install wget unzip -y
-USER bds
+RUN adduser -D -h /home/container container -s /bin/bash && apt install wget unzip -y
+USER container
+ENV USER=container HOME=/home/container
 WORKDIR /home/container/
 RUN wget https://minecraft.azureedge.net/bin-win/bedrock-server-${BDSVER}.zip && \
 wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/${LLVER}/LiteLoader-${LLVER}.zip && \
