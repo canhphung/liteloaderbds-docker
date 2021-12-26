@@ -4,7 +4,7 @@ VOLUME [ "/home/container/bds" ]
 ENV BDSDIR /home/container/bds/
 ENV BDSVER 1.18.2.03
 ENV LLVER 2.0.3
-RUN adduser --disabled-password --h /home/container container -s /bin/bash && apt install wget unzip -y
+RUN adduser --disabled-password --home /home/container container && apt install wget unzip -y
 USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container/
