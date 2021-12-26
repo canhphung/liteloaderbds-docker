@@ -1,4 +1,5 @@
 FROM shrbox/winehq:main
+FROM ubuntu:groovy
 
 VOLUME [ "/home/container/bds" ]
 ENV BDSDIR /home/container/bds/
@@ -8,7 +9,6 @@ RUN adduser --disabled-password --home /home/container container && apt install 
 USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container/
-RUN chown container /home/container && \
 wget https://minecraft.azureedge.net/bin-win/bedrock-server-${BDSVER}.zip && \
 chmod +x bedrock-server-1.18.2.03.zip && \
 wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/${LLVER}/LiteLoader-${LLVER}.zip && \
