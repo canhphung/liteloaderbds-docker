@@ -1,5 +1,4 @@
 FROM shrbox/winehq:main
-FROM ubuntu:groovy
 
 VOLUME [ "/home/container/bds" ]
 ENV BDSDIR /home/container/bds/
