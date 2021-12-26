@@ -21,5 +21,6 @@ rm vcruntime140_1.zip && \
 wine SymDB2.exe && \
 rm /home/container.wine -r
 
-ENV WINEDEBUG -all
-CMD [ "wine", "/home/container/bds/bedrock_server_mod.exe" ]
+COPY ./entrypoint.sh /entrypoint.sh
+
+CMD ["/bin/bash", "/entrypoint.sh"]
