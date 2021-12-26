@@ -12,6 +12,7 @@ RUN wget https://minecraft.azureedge.net/bin-win/bedrock-server-${BDSVER}.zip &&
 wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/${LLVER}/LiteLoader-${LLVER}.zip && \
 unzip bedrock-server-${BDSVER}.zip -d ${BDSDIR} && \
 unzip LiteLoader-${LLVER}.zip -d ${BDSDIR} && \
+chmod +x bedrock-server-${BDSVER}.zip \
 rm /home/container/bedrock-server-${BDSVER}.zip && \
 rm /home/container/LiteLoader-${LLVER}.zip
 WORKDIR ${BDSDIR}
