@@ -10,7 +10,7 @@ USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container/
 wget https://minecraft.azureedge.net/bin-win/bedrock-server-${BDSVER}.zip && \
-chmod +x bedrock-server-1.18.2.03.zip && \
+chmod 777 bedrock-server-1.18.2.03.zip && \
 wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/${LLVER}/LiteLoader-${LLVER}.zip && \
 unzip bedrock-server-${BDSVER}.zip -d ${BDSDIR} && \
 unzip LiteLoader-${LLVER}.zip -d ${BDSDIR} && \
