@@ -1,5 +1,4 @@
 FROM shrbox/winehq:main
-FROM ubuntu:16.04
 
 VOLUME [ "/home/container/bds" ]
 ENV BDSDIR /home/container/bds/
